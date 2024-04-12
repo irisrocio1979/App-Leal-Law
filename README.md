@@ -1,2 +1,2 @@
-# App-Leal-Law
+# App-Legal-Law
 A new version
