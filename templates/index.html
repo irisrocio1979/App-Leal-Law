@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Legal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Chat Legal</h1>
+        {% if "usuario" in session %}
+        <p>Bienvenido, {{ session["usuario"] }} <a href="/logout">Cerrar sesión</a></p>
+        <form action="/" method="post">
+            <textarea name="consulta" rows="4" cols="50" placeholder="Escribe tu consulta aquí..."></textarea><br>
+            <input type="submit" value="Enviar Consulta">
+        </form>
+        {% if respuesta %}
+        <div class="respuesta">
+            <h3>Respuesta:</h3>
+            <p>{{ respuesta }}</p>
+        </div>
+        {% endif %}
+        {% else %}
+        <p>Por favor, <a href="/login">inicie sesión</a> para acceder al chat.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

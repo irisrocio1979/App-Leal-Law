@@ -1,0 +1,187 @@
+/* Define los estilos para la animación de las auroras boreales */
+@keyframes aurora {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Define los estilos para la animación del efecto de escarcha */
+@keyframes frost {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.title {
+  font-size: 3rem; /* Aumentar el tamaño de la fuente */
+  font-family: 'Arial', sans-serif; /* Cambiar la fuente */
+  color: #ffffff; /* Color del texto */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+  position: relative; /* Posicionamiento relativo para agregar elementos superpuestos */
+  z-index: 1; /* Asegura que el título esté por encima del fondo */
+}
+
+.search-container {
+  margin-top: 50px; /* Ajuste para que esté más abajo del título */
+  display: flex; /* Cambiar a un diseño de tipo flexbox para alinear los elementos */
+  justify-content: center; /* Centrar los elementos horizontalmente */
+  align-items: center; /* Centrar los elementos verticalmente */
+}
+
+.search-container input {
+  padding: 10px;
+  margin-right: 10px;
+  width: 300px;
+}
+
+/* Estilos para el botón de búsqueda */
+.search-container button {
+  padding: 12px 24px; /* Padding del botón */
+  background-color: #007bff; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor al pasar */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.search-container button:hover {
+  background-color: #0056b3; /* Cambio de color al pasar el mouse */
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./img/focus-biblioteca.jpg');
+  background-size: cover;
+  filter: blur(5px); /* Efecto de desenfoque */
+  animation: aurora 30s infinite alternate; /* Animación de las auroras boreales */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Superposición de color */
+}
+
+.content {
+  z-index: 1;
+  position: relative;
+}
+
+/* Efecto de escarcha alrededor del título */
+.title::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 80%);
+  z-index: -1;
+  opacity: 0; /* La escarcha es invisible al principio */
+  animation: frost 5s infinite; /* Animación del efecto de escarcha */
+}
+
+/* Animación para que la escarcha aparezca y desaparezca */
+@keyframes frost {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.result-container {
+  margin-top: 20px; /* Ajuste del margen superior para evitar interferencias */
+  padding: 20px;
+  background-color: #f9f9f9; /* Color de fondo */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  max-width: 600px; /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Centrar horizontalmente */
+  position: relative; /* Posición relativa */
+  top: 30px; /* Mover más abajo */
+}
+
+.result-container:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 10px;
+  background: #f9f9f9;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.result-container:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 10px;
+  background: #f9f9f9;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.result-container h2 {
+  font-size: 2rem; /* Tamaño del título */
+  color: #333; /* Color del texto */
+  text-align: center; /* Centrar el texto */
+}
+
+.result-container p {
+  font-size: 1.0rem; /* Tamaño del texto */
+  line-height: 1.6; /* Espaciado entre líneas */
+  color: #555; /* Color del texto */
+}
+
+.juss-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./img/juss1.png'); 
+  background-size: cover;
+  z-index: 0; /* Asegurar que esté por encima del fondo principal */
+}
+
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Estilos para la sección de bienvenida y cierre de sesión */
+.welcome-section {
+    position: static;
+    padding: 50px 20px;
+    color: #fff; /* Texto blanco */
+    font-size: 24px;
+    font-style: italic;
+}
+.logout-link {
+            color: #fff;
+            background-color: transparent; /* Fondo transparente */
+            border: none;
+            padding: 10px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            position: absolute; /* Colocar en posición absoluta */
+            top: 20px; /* Alineado con la parte superior */
+            right: 20px; /* Alineado a la derecha */
+}
+
+.logout-link:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Cambia la transparencia al pasar el cursor sobre el botón */
+}
