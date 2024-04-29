@@ -1,40 +1,52 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consulta Legal</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Legal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <div class="background-image"></div>
+    <div class="container">
+        <!-- Bienvenida y Cierre de Sesión -->
+        
+        <!-- Contenido del Chat -->
+        <div class="background-image"></div>
+        <div class="juss-image"></div>
+        <div class="overlay"></div>
 
-    <div class="juss-image"></div>
+        
+        <div class="content">
+            <div class="welcome-section">
+                {% if "usuario" in session %}
+                <p>¡Bienvenido, {{ session["usuario"] }}!</p>
+                
+            </div>
 
-    <div class="overlay"></div>
-    <div class="content">
-      <h1 class="title">Consulta Legal</h1>
-      <div class="search-container">
-        <input type="text" class="form-control" id="queryInput" placeholder="Ingrese su consulta legal...">
-        <button class="btn btn-primary" onclick="handleSearch()">Buscar</button>
-      </div>
-
-      <div class="result-container" id="resultContainer" style="display: none;">
-        <h2>Respuesta:</h2>
-        <p id="resultText"></p>
-      </div>
+            <p><a href="/logout" class="logout-link">Cerrar sesión</a></p>
+                {% else %}
+                <p>Por favor, <a href="/login">inicie sesión</a> para acceder al chat.</p>
+                {% endif %}
+                
+            <h1 class="title">Consulta Legal</h1>
+            
+            <form action="/" method="post">
+                <div class="search-container">
+                    <input type="text" class="form-control" id="queryInput" placeholder="Ingrese su consulta legal...">
+                    <br>
+                    <button class="btn btn-primary" onclick="handleSearch()">Enviar consulta</button>
+                </div>
+            </form>
+            {% if respuesta %}
+            <div class="result-container" id="resultContainer" style="display: none;">
+                <h2>Respuesta:</h2>
+                <p id="resultText">{{ respuesta }}</p>
+            </div>
+            {% endif %}
+        </div>
     </div>
-  </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- Script personalizado -->
-  <script src="script.js"></script>
 </body>
 </html>
