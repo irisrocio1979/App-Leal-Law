@@ -1,0 +1,5 @@
+Flask==2.0.1
+numpy  # u otras librerías necesarias para tu modelo
+pandas
+scikit-learn
+tensorflow  # o cualquier otra librería que uses para el modelo

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta Legal</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="background-image"></div>
+    <div class="juss-image"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <h1 class="title">Consulta Legal</h1>
+      <div class="search-container">
+        <input type="text" class="form-control" id="queryInput" placeholder="Ingrese su consulta legal...">
+        <button class="btn btn-primary" onclick="handleSearch()">Buscar</button>
+      </div>
+      <div class="result-container" id="resultContainer" style="display: none;">
+        <h2>Respuesta:</h2>
+        <p id="resultText"></p>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Script personalizado -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
