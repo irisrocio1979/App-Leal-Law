@@ -81,5 +81,5 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE)
 
 ## Contacto
 
-Si tienes preguntas o sugerencias, no dudes en abrir un issue o contactarme directamente a través de [tu-email@dominio.com](mailto:tu-email@dominio.com).
+Si tienes preguntas o sugerencias, no dudes en abrir un issue o contactarme directamente a través de [tu-email@dominio.com](mailto:iris.curo@ucsp.edu.pe).
 
